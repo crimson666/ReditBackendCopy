@@ -1,5 +1,6 @@
 package com.reddit.RedditClone.service;
 
+import com.reddit.RedditClone.dto.LoginRequest;
 import com.reddit.RedditClone.dto.RegisterRequest;
 import com.reddit.RedditClone.exception.SpringRedditException;
 import com.reddit.RedditClone.models.NotificationEmail;
@@ -8,6 +9,9 @@ import com.reddit.RedditClone.models.VerificationToken;
 import com.reddit.RedditClone.repository.UserRepository;
 import com.reddit.RedditClone.repository.VerificationTokenRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationServiceException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +32,7 @@ public class AuthService {
     private final UserRepository userRepository;
     private final VerificationTokenRepository verificationTokenRepository;
     private final MailService mailService;
+    private final AuthenticationManager authenticationManager;
 
     @Transactional
     public void signup(RegisterRequest registerRequest) {
@@ -63,5 +68,9 @@ public class AuthService {
         User user = userRepository.findByUsername(userName).orElseThrow(() -> new SpringRedditException("User Not founf " + userName));
         user.setEnabled(true);
         userRepository.save(user);
+    }
+
+    public void login(LoginRequest loginRequest) {
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
     }
 }
