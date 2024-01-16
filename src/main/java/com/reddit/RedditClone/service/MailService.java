@@ -21,6 +21,7 @@ public class MailService {
 
     @Async
     void sendMail(NotificationEmail notificationEmail) {
+        //Function for mail sending
         MimeMessagePreparator messagePreparator = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
             messageHelper.setFrom("springreddit@email.com");
