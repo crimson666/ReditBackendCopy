@@ -12,6 +12,8 @@ import java.time.Instant;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
+
+@Data
 @Setter
 @Getter
 @AllArgsConstructor
