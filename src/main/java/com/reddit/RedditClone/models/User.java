@@ -1,16 +1,15 @@
 package com.reddit.RedditClone.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
 import lombok.*;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import java.time.Instant;
 
-import static jakarta.persistence.GenerationType.SEQUENCE;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 
 @Data

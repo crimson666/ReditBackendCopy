@@ -4,6 +4,7 @@ import com.reddit.RedditClone.exception.SpringRedditException;
 import com.reddit.RedditClone.models.RefreshToken;
 import com.reddit.RedditClone.repository.RefreshTokenRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,6 +27,7 @@ public class RefreshTokenService {
     }
 
     void validateRefreshToken(String token) {
+        MailException e = null;
         refreshTokenRepository.findByToken(token)
                 .orElseThrow(() -> new SpringRedditException("Invalid refresh Token"));
     }
