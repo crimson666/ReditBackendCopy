@@ -60,10 +60,10 @@ public class AuthService {
     private String genrateVerificationToken(User user) {
         // TODO Auto-generated method stub
         String vToken = UUID.randomUUID().toString();
-        VerificationToken verficationToken = new VerificationToken();
-        verficationToken.setToken(vToken);
-        verficationToken.setUser(user);
-        verificationTokenRepository.save(verficationToken);
+        VerificationToken verificationToken = new VerificationToken();
+        verificationToken.setToken(vToken);
+        verificationToken.setUser(user);
+        verificationTokenRepository.save(verificationToken);
         return vToken;
     }
     public void verifyAccount(String vToken) {
