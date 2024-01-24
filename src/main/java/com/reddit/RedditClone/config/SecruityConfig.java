@@ -28,7 +28,7 @@ public class SecruityConfig extends WebSecurityConfigurerAdapter {
 
         //To Disable csrf attack protection and ant matcher is for
         //authenticate any request with /api/auth to grant assess
-        //the most important, refer to Video 4
+        //the most important, refer to Video 4.
 
         httpSecruity.csrf().disable()
                 .authorizeRequests()
