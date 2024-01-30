@@ -1,6 +1,6 @@
 package com.reddit.RedditClone.service;
 
-import com.reddit.RedditClone.dto.SubredditDto.SubredditDto;
+import com.reddit.RedditClone.dto.SubredditDto;
 import com.reddit.RedditClone.models.Subreddit;
 import com.reddit.RedditClone.repository.SubredditRepository;
 import lombok.AllArgsConstructor;
@@ -20,11 +20,11 @@ public class SubredditService {
     private final SubredditRepository subredditRepository;
 
     @Transactional
-    public Subreddit save (SubredditDto subredditDto){
+    public SubredditDto save (SubredditDto subredditDto){
         Subreddit subreddit = mapSubredditDto(subredditDto);
         Subreddit save = subredditRepository.save(subreddit);
         subredditDto.setId(save.getId());
-        return subreddit;
+        return subredditDto;
     }
 
     private Subreddit mapSubredditDto(SubredditDto subredditDto) {
