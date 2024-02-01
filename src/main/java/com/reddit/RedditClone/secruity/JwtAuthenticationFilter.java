@@ -17,7 +17,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.security.core.userdetails.UserDetailsService;
-//Jwt provider
+//Jwt provider.
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
