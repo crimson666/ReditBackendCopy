@@ -18,6 +18,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Builder
 public class User {
     @Id
     @GeneratedValue(strategy = SEQUENCE)

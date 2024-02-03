@@ -8,6 +8,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class RegisterRequest {
     @Email
     @NotEmpty(message = "Email is required")
