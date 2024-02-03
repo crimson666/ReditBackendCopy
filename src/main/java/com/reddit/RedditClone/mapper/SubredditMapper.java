@@ -3,8 +3,6 @@ package com.reddit.RedditClone.mapper;
 import com.reddit.RedditClone.dto.SubredditDto;
 import com.reddit.RedditClone.models.Post;
 import com.reddit.RedditClone.models.Subreddit;
-import io.swagger.models.auth.In;
-import org.mapstruct.InheritConfiguration;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
