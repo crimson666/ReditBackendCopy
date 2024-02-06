@@ -24,14 +24,14 @@ public class CommentsController {
         return new ResponseEntity<>(CREATED);
     }
 
-    @GetMapping
-    public ResponseEntity<List<CommentsDto>> getAllCommentsForPost(@RequestParam("postId") Long postId) {
+    @GetMapping(params = "/by-user/{postId}")
+    public ResponseEntity<List<CommentsDto>> getAllCommentsForPost(@PathVariable Long postId) {
         return status(OK)
                 .body(commentService.getCommentByPost(postId));
     }
 
-    @GetMapping
-    public ResponseEntity<List<CommentsDto>> getAllCommentsByUser(@RequestParam("userName") String userName) {
+    @GetMapping(params = "/by-user/{userName}")
+    public ResponseEntity<List<CommentsDto>> getAllCommentsByUser(@PathVariable String userName) {
         return status(OK).body(commentService.getCommentsByUser(userName));
     }
 }
