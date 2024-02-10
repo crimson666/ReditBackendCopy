@@ -1,22 +1,22 @@
 package com.reddit.RedditClone.controller;
 
 import com.reddit.RedditClone.dto.VoteDto;
+import com.reddit.RedditClone.service.VoteService;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-@NoArgsConstructor
 @RequestMapping("/api/votes/")
 public class VoteController {
 
     private final VoteService voteService;
-    public ResponseEntity<void> vote(@RequestBody VoteDto voteDto){
 
+    @PostMapping
+    public ResponseEntity<Void> vote(@RequestBody VoteDto voteDto){
+        voteService.vote(voteDto);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
