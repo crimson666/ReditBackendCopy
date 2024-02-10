@@ -5,18 +5,22 @@ import com.reddit.RedditClone.dto.PostResponse;
 import com.reddit.RedditClone.models.Post;
 import com.reddit.RedditClone.models.Subreddit;
 import com.reddit.RedditClone.models.User;
+import com.reddit.RedditClone.repository.CommentRepository;
+import com.reddit.RedditClone.repository.VoteRepository;
+import com.reddit.RedditClone.service.AuthService;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Mapper(componentModel = "spring")
-public interface PostMapper {
+public abstract class PostMapper {
 
-//    @Autowired
-//    private CommentRepository commentRepository;
-//    @Autowired
-//    private VoteRepository voteRepository;
-//    @Autowired
-//    private AuthService authService;
+    @Autowired
+    private CommentRepository commentRepository;
+    @Autowired
+    private VoteRepository voteRepository;
+    @Autowired
+    private AuthService authService;
 
     @Mapping(target = "createdDate", expression = "java(java.time.Instant.now())")
     @Mapping(target = "description", source = "postRequest.description")
