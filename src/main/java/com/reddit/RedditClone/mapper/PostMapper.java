@@ -1,5 +1,6 @@
 package com.reddit.RedditClone.mapper;
 
+import com.github.marlonlom.utilities.timeago.TimeAgo;
 import com.reddit.RedditClone.dto.PostRequest;
 import com.reddit.RedditClone.dto.PostResponse;
 import com.reddit.RedditClone.models.Post;
@@ -32,20 +33,19 @@ public abstract class PostMapper {
     @Mapping(target = "id", source = "postId")
     @Mapping(target = "subredditName", source = "subreddit.name")
     @Mapping(target = "userName", source = "user.username")
-
-//    @Mapping(target = "commentCount", expression = "java(commentCount(post))")
-//    @Mapping(target = "duration", expression = "java(getDuration(post))")
+    @Mapping(target = "commentCount", expression = "java(commentCount(post))")
+    @Mapping(target = "duration", expression = "java(getDuration(post))")
 //    @Mapping(target = "upVote", expression = "java(isPostUpVoted(post))")
 //    @Mapping(target = "downVote", expression = "java(isPostDownVoted(post))")
     public abstract PostResponse mapToDto(Post post);
 
-//    Integer commentCount(Post post) {
-//        return commentRepository.findByPost(post).size();
-//    }
-//
-//    String getDuration(Post post) {
-//        return TimeAgo.using(post.getCreatedDate().toEpochMilli());
-//    }
+    Integer commentCount(Post post) {
+        return commentRepository.findByPost(post).size();
+    }
+
+    String getDuration(Post post) {
+        return TimeAgo.using(post.getCreatedDate().toEpochMilli());
+    }
 //
 //    boolean isPostUpVoted(Post post) {
 //        return checkVoteType(post, UPVOTE);
