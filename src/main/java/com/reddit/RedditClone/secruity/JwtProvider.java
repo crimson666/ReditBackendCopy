@@ -78,4 +78,5 @@ public class JwtProvider {
         Claims claims = parser().setSigningKey(getPublicKey()).parseClaimsJws(token).getBody();
         return claims.getSubject();
     }
+
 }
