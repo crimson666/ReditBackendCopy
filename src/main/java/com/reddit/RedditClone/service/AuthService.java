@@ -84,7 +84,7 @@ public class AuthService {
         userRepository.save(user);
     }
     public AuthenticationResponse login(LoginRequest loginrequest) {
-        // TODO Auto-generated method stub
+        // TODO Auto-generated method stub.
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 loginrequest.getUsername(),loginrequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
