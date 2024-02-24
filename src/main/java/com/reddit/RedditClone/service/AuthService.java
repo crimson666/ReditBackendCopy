@@ -113,6 +113,7 @@ public class AuthService {
                 .username(refreshTokenRequest.getUsername())
                 .build();
     }
+
     public boolean isLoggedIn() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return !(authentication instanceof AnonymousAuthenticationToken) && authentication.isAuthenticated();
