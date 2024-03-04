@@ -21,7 +21,7 @@ import lombok.AllArgsConstructor;
 
 import org.springframework.web.bind.annotation.RequestBody;
 
-//Auth Controller
+//Auth Controller.
 @RestController
 @RequestMapping("/api/auth")
 @AllArgsConstructor
